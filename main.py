@@ -1,39 +1,40 @@
 def main():
     book_path = "books/frankenstein.txt"
     text = get_book_text(book_path)
-    num_words = get_num_words(text)
-    chars_dict = get_chars_dict(text)
-    chars_sorted_list = chars_dict_to_sorted_list(chars_dict)
+    number_of_words = get_number_of_words(text)
+    characters_dict = get_characters_dict(text)
+    characters_sorted_list = characters_dict_to_sorted_list(characters_dict)
 
     print(f"--- Begin report of {book_path} ---")
-    print(f"{num_words} words found in the document")
+    print()
+    print(f"{number_of_words} words found in the document")
     print()
 
-    for item in chars_sorted_list:
-        if not item["char"].isalpha():
+    for item in characters_sorted_list:
+        if not item["character"].isalpha():
             continue
-        print(f"The '{item['char']}' character was found {item['num']} times")
-
+        print(f"The '{item['character']}' character was found {item['number']} times")
+    print()
     print("--- End report ---")
 
-def get_num_words(text):
+def get_number_of_words(text):
     words = text.split()
     return len(words)
 
 def sort_on(d):
-    return d["num"]
+    return d["number"]
 
-def chars_dict_to_sorted_list(num_chars_dict):
+def characters_dict_to_sorted_list(characters_dict):
     sorted_list = []
-    for ch in num_chars_dict:
-        sorted_list.append({"char": ch, "num": num_chars_dict[ch]})
+    for character in characters_dict:
+        sorted_list.append({"character": character, "number": characters_dict[character]})
     sorted_list.sort(reverse=True, key=sort_on)
     return sorted_list
 
-def get_chars_dict(text):
+def get_characters_dict(text):
     chars = {}
-    for c in text:
-        lowered = c.lower()
+    for character in text:
+        lowered = character.lower()
         if lowered in chars:
             chars[lowered] += 1
         else:
