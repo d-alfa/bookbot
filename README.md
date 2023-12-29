@@ -15,4 +15,4 @@ bookboot is a Python utility for analyzing and reporting statistics on text docu
 
 **3.** Result should look like this:
 
-![bookbot Logo](bookbot result.png)
+![bookbot Logo](bookbot_result.png)
