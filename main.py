@@ -1,5 +1,7 @@
 def main():
+    # Replace 'books/frankenstein.txt' with the path to your text document
     book_path = "books/frankenstein.txt"
+    
     text = get_book_text(book_path)
     number_of_words = get_number_of_words(text)
     characters_dict = get_characters_dict(text)
